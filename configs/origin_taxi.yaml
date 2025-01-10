@@ -218,6 +218,7 @@ FullyNN_train:
     use_ln: False
     model_specs:
       num_mlp_layers: 3
+      proper_marked_intensities: True
 #    thinning:
 #      num_seq: 10
 #      num_sample: 1
