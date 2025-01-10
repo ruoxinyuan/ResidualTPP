@@ -14,6 +14,7 @@ class DataSpecConfig(Config):
         self.truncation_strategy = kwargs.get('truncation_strategy')
         self.num_event_types_pad = self.num_event_types + 1
         self.model_input_names = kwargs.get('model_input_names')
+        self.res_weight = kwargs.get('res_weight')  # Add this line
 
         if self.padding_side is not None and self.padding_side not in ["right", "left"]:
             raise ValueError(
