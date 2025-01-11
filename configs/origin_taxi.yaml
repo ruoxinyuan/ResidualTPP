@@ -36,11 +36,11 @@ data:
 #       pad_token_id: 1
 #       padding_side: right
 #       truncation_side: right
-#   retweet:
+#   taxi:
 #     data_format: pkl
-#     train_dir: data\retweet\train.pkl
-#     valid_dir: data/retweet/dev.pkl
-#     test_dir: data/retweet/test.pkl
+#     train_dir: data\taxi\train.pkl
+#     valid_dir: data/taxi/dev.pkl
+#     test_dir: data/taxi/test.pkl
 #     data_specs:
 #       num_event_types: 3
 #       pad_token_id: 3
@@ -84,7 +84,7 @@ RMTPP_train:
     thinning:
       num_seq: 10
       num_sample: 1
-      num_exp: 500 # number of i.i.d. Exp(intensity_bound) draws at one time in thinning algorithm
+      num_exp: 50 # number of i.i.d. Exp(intensity_bound) draws at one time in thinning algorithm
       look_ahead_time: 10
       patience_counter: 5 # the maximum iteration used in adaptive thinning
       over_sample_rate: 5
@@ -96,7 +96,7 @@ RMTPP_gen:
   base_config:
     stage: gen
     backend: torch
-    dataset_id: retweet
+    dataset_id: taxi
     runner_id: std_tpp
     base_dir: './checkpoints/'
     model_id: RMTPP
@@ -114,7 +114,7 @@ RMTPP_gen:
     thinning:
       num_seq: 10
       num_sample: 1
-      num_exp: 500 # number of i.i.d. Exp(intensity_bound) draws at one time in thinning algorithm
+      num_exp: 50 # number of i.i.d. Exp(intensity_bound) draws at one time in thinning algorithm
       look_ahead_time: 10
       patience_counter: 5 # the maximum iteration used in adaptive thinning
       over_sample_rate: 5
@@ -142,7 +142,7 @@ NHP_eval:
     thinning:
       num_seq: 10
       num_sample: 1
-      num_exp: 500 # number of i.i.d. Exp(intensity_bound) draws at one time in thinning algorithm
+      num_exp: 50 # number of i.i.d. Exp(intensity_bound) draws at one time in thinning algorithm
       look_ahead_time: 10
       patience_counter: 5 # the maximum iteration used in adaptive thinning
       over_sample_rate: 5
@@ -175,7 +175,7 @@ NHP_gen:
       thinning:
         num_seq: 10
         num_sample: 1
-        num_exp: 500 # number of i.i.d. Exp(intensity_bound) draws at one time in thinning algorithm
+        num_exp: 50 # number of i.i.d. Exp(intensity_bound) draws at one time in thinning algorithm
         look_ahead_time: 10
         patience_counter: 5 # the maximum iteration used in adaptive thinning
         over_sample_rate: 5
@@ -222,7 +222,7 @@ FullyNN_train:
 #    thinning:
 #      num_seq: 10
 #      num_sample: 1
-#      num_exp: 500 # number of i.i.d. Exp(intensity_bound) draws at one time in thinning algorithm
+#      num_exp: 50 # number of i.i.d. Exp(intensity_bound) draws at one time in thinning algorithm
 #      look_ahead_time: 10
 #      patience_counter: 5 # the maximum iteration used in adaptive thinning
 #      over_sample_rate: 5
@@ -317,7 +317,7 @@ ODETPP_gen:
   base_config:
     stage: gen
     backend: torch
-    dataset_id: retweet
+    dataset_id: taxi
     runner_id: std_tpp
     base_dir: './checkpoints/'
     model_id: ODETPP
@@ -341,7 +341,7 @@ ODETPP_gen:
     thinning:
       num_seq: 10
       num_sample: 1
-      num_exp: 500 # number of i.i.d. Exp(intensity_bound) draws at one time in thinning algorithm
+      num_exp: 50 # number of i.i.d. Exp(intensity_bound) draws at one time in thinning algorithm
       look_ahead_time: 10
       patience_counter: 5 # the maximum iteration used in adaptive thinning
       over_sample_rate: 5
@@ -379,7 +379,7 @@ NHP_train:
     thinning:
       num_seq: 10
       num_sample: 1
-      num_exp: 500 # number of i.i.d. Exp(intensity_bound) draws at one time in thinning algorithm
+      num_exp: 50 # number of i.i.d. Exp(intensity_bound) draws at one time in thinning algorithm
       look_ahead_time: 10
       patience_counter: 5 # the maximum iteration used in adaptive thinning
       over_sample_rate: 5
@@ -421,7 +421,7 @@ SAHP_train:
     thinning:
       num_seq: 10
       num_sample: 1
-      num_exp: 500 # number of i.i.d. Exp(intensity_bound) draws at one time in thinning algorithm
+      num_exp: 50 # number of i.i.d. Exp(intensity_bound) draws at one time in thinning algorithm
       look_ahead_time: 10
       patience_counter: 5 # the maximum iteration used in adaptive thinning
       over_sample_rate: 5
@@ -435,7 +435,7 @@ SAHP_gen:
   base_config:
     stage: gen
     backend: torch
-    dataset_id: retweet
+    dataset_id: taxi
     runner_id: std_tpp
     model_id: SAHP # model name
     base_dir: './checkpoints/'
@@ -452,7 +452,7 @@ SAHP_gen:
     thinning:
       num_seq: 10
       num_sample: 1
-      num_exp: 500 # number of i.i.d. Exp(intensity_bound) draws at one time in thinning algorithm
+      num_exp: 50 # number of i.i.d. Exp(intensity_bound) draws at one time in thinning algorithm
       look_ahead_time: 10
       patience_counter: 5 # the maximum iteration used in adaptive thinning
       over_sample_rate: 5
@@ -495,7 +495,7 @@ THP_train:
     thinning:
       num_seq: 10
       num_sample: 1
-      num_exp: 500 # number of i.i.d. Exp(intensity_bound) draws at one time in thinning algorithm
+      num_exp: 50 # number of i.i.d. Exp(intensity_bound) draws at one time in thinning algorithm
       look_ahead_time: 10
       patience_counter: 5 # the maximum iteration used in adaptive thinning
       over_sample_rate: 5
@@ -508,7 +508,7 @@ THP_gen:
   base_config:
     stage: gen
     backend: torch
-    dataset_id: retweet
+    dataset_id: taxi
     runner_id: std_tpp
     model_id: THP # model name
     base_dir: './checkpoints/'
@@ -527,7 +527,7 @@ THP_gen:
     thinning:
       num_seq: 10
       num_sample: 1
-      num_exp: 500 # number of i.i.d. Exp(intensity_bound) draws at one time in thinning algorithm
+      num_exp: 50 # number of i.i.d. Exp(intensity_bound) draws at one time in thinning algorithm
       look_ahead_time: 10
       patience_counter: 5 # the maximum iteration used in adaptive thinning
       over_sample_rate: 5
@@ -580,7 +580,7 @@ AttNHP_gen:
   base_config:
     stage: gen
     backend: torch
-    dataset_id: retweet
+    dataset_id: taxi
     runner_id: std_tpp
     model_id: AttNHP # model name
     base_dir: './checkpoints/'
@@ -651,7 +651,7 @@ Hawkes_gen:
   base_config:
     stage: gen
     backend: torch
-    dataset_id: retweet
+    dataset_id: taxi
     runner_id: std_tpp
     model_id: Hawkes # model name
     base_dir: './checkpoints/'
