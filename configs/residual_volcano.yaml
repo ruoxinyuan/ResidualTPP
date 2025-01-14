@@ -1,16 +1,16 @@
 pipeline_config_id: runner_config
 
 data:
-  retweet:
+  volcano:
     data_format: pkl
-    train_dir:  residual_data\retweet\train.pkl
-    valid_dir:  residual_data\retweet\dev.pkl
-    test_dir:  residual_data\retweet\test.pkl
+    train_dir:  residual_data\volcano\train.pkl
+    valid_dir:  residual_data\volcano\dev.pkl
+    test_dir:  residual_data\volcano\test.pkl
     data_specs:
-      num_event_types: 3
-      pad_token_id: 3
+      num_event_types: 1
+      pad_token_id: 1
       padding_side: right
-      res_weight: 0.66
+      res_weight: 0.71
 #      padding_strategy: max_length
 #      truncation_strategy: longest_first # or Truncate to a maximum length specified with the argument `max_length`
 #      max_len: 20
@@ -21,17 +21,16 @@ RMTPP_train:
   base_config:
     stage: train
     backend: torch
-    dataset_id: retweet
+    dataset_id: volcano
     runner_id: std_tpp
     model_id: RMTPP # model name
     base_dir: './checkpoints/'
     specs:
-      saved_dir: 'intensity\retweet\residualdata\RMTPP'
-      load_dir1: 'residual_data/retweet/RMTPP'
-      load_dir: 'residual_data/retweet'
+      saved_dir: 'intensity\volcano\residualdata\RMTPP'
+      load_dir: 'residual_data/volcano'
   trainer_config:
     batch_size: 256
-    max_epoch: 100
+    max_epoch: 300
     shuffle: False
     optimizer: adam
     learning_rate: 1.e-3
@@ -65,7 +64,7 @@ RMTPP_gen:
   base_config:
     stage: gen
     backend: torch
-    dataset_id: retweet
+    dataset_id: volcano
     runner_id: std_tpp
     base_dir: './checkpoints/'
     model_id: RMTPP
@@ -95,7 +94,7 @@ NHP_eval:
   base_config:
     stage: eval
     backend: torch
-    dataset_id: retweet
+    dataset_id: volcano
     runner_id: std_tpp
     base_dir: './checkpoints/'
     model_id: NHP
@@ -122,7 +121,7 @@ NHP_gen:
   base_config:
     stage: eval
     backend: torch
-    dataset_id: retweet
+    dataset_id: volcano
     runner_id: std_tpp
     model_id: NHP # model name
     base_dir: './checkpoints/'
@@ -156,17 +155,16 @@ FullyNN_train:
   base_config:
     stage: train
     backend: torch
-    dataset_id: retweet
+    dataset_id: volcano
     runner_id: std_tpp
     model_id: FullyNN # model name
     base_dir: './checkpoints/'
     specs:
-      saved_dir: 'intensity\retweet\residualdata\FullyNN'
-      load_dir1: 'residual_data/retweet/FullyNN'
-      load_dir: 'residual_data/retweet'
+      saved_dir: 'intensity\volcano\residualdata\FullyNN'
+      load_dir: 'residual_data/volcano'
   trainer_config:
     batch_size: 256
-    max_epoch: 50
+    max_epoch: 500
     shuffle: False
     optimizer: adam
     learning_rate: 1.e-3
@@ -206,14 +204,13 @@ IntensityFree_train:
   base_config:
     stage: train
     backend: torch
-    dataset_id: retweet
+    dataset_id: volcano
     runner_id: std_tpp
     model_id: IntensityFree # model name
     base_dir: './checkpoints/'
     specs:
-      saved_dir: 'intensity\retweet\residualdata\IntensityFree'
-      load_dir1: 'residual_data/retweet/THP'
-      load_dir: 'residual_data/retweet'
+      saved_dir: 'intensity\volcano\residualdata\IntensityFree'
+      load_dir: 'residual_data/volcano'
   trainer_config:
     batch_size: 256
     max_epoch: 200
@@ -244,17 +241,16 @@ ODETPP_train:
   base_config:
     stage: train
     backend: torch
-    dataset_id: retweet
+    dataset_id: volcano
     runner_id: std_tpp
     model_id: ODETPP # model name
     base_dir: './checkpoints/'
     specs:
-      saved_dir: 'intensity\retweet\residualdata\ODETPP'
-      load_dir1: 'residual_data/retweet/ODETPP'
-      load_dir: 'residual_data/retweet'
+      saved_dir: 'intensity\volcano\residualdata\ODETPP'
+      load_dir: 'residual_data/volcano'
   trainer_config:
     batch_size: 32
-    max_epoch: 1
+    max_epoch: 20
     shuffle: False
     optimizer: adam
     learning_rate: 1.e-1
@@ -262,7 +258,7 @@ ODETPP_train:
     use_tfb: False
     metrics: [ 'acc', 'rmse' ]
     seed: 2019
-    gpu: 0
+    gpu: -1
   model_config:
     hidden_size: 4
     time_emb_size: 4
@@ -289,7 +285,7 @@ ODETPP_gen:
   base_config:
     stage: gen
     backend: torch
-    dataset_id: retweet
+    dataset_id: volcano
     runner_id: std_tpp
     base_dir: './checkpoints/'
     model_id: ODETPP
@@ -325,18 +321,17 @@ NHP_train:
   base_config:
     stage: train
     backend: torch
-    dataset_id: retweet
+    dataset_id: volcano
     runner_id: std_tpp
     model_id: NHP # model name
     base_dir: './checkpoints/'
     saved_model_dir: './best_model/'
     specs:
-      saved_dir: 'intensity\retweet\residualdata\NHP'
-      load_dir1: 'residual_data/retweet/NHP'
-      load_dir: 'residual_data/retweet'
+      saved_dir: 'intensity\volcano\residualdata\NHP'
+      load_dir: 'residual_data/volcano'
   trainer_config:
     batch_size: 256
-    max_epoch: 20
+    max_epoch: 50
     shuffle: False
     optimizer: adam
     learning_rate: 1.e-3
@@ -366,17 +361,16 @@ SAHP_train:
   base_config:
     stage: train
     backend: torch
-    dataset_id: retweet
+    dataset_id: volcano
     runner_id: std_tpp
     model_id: SAHP # model name
     base_dir: './checkpoints/'
     specs:
-      saved_dir: 'intensity\retweet\residualdata\SAHP'
-      load_dir1: 'residual_data/retweet/SAHP'
-      load_dir: 'residual_data/retweet'
+      saved_dir: 'intensity\volcano\residualdata\SAHP'
+      load_dir: 'residual_data/volcano'
   trainer_config:
     batch_size: 256
-    max_epoch: 200
+    max_epoch: 100
     shuffle: False
     optimizer: adam
     learning_rate: 1.e-3
@@ -409,7 +403,7 @@ SAHP_gen:
   base_config:
     stage: gen
     backend: torch
-    dataset_id: retweet
+    dataset_id: volcano
     runner_id: std_tpp
     model_id: SAHP # model name
     base_dir: './checkpoints/'
@@ -438,14 +432,13 @@ THP_train:
   base_config:
     stage: train
     backend: torch
-    dataset_id: retweet
+    dataset_id: volcano
     runner_id: std_tpp
     model_id: THP # model name
     base_dir: './checkpoints/'
     specs:
-      saved_dir: 'intensity\retweet\residualdata\THP'
-      load_dir1: 'residual_data/retweet/THP'
-      load_dir: 'residual_data/retweet'
+      saved_dir: 'intensity\volcano\residualdata\THP'
+      load_dir: 'residual_data/volcano'
   trainer_config:
     batch_size: 256
     max_epoch: 100
@@ -456,7 +449,7 @@ THP_train:
     use_tfb: False
     metrics: [ 'acc', 'rmse' ]
     seed: 2019
-    gpu: 0
+    gpu: -1
   model_config:
     hidden_size: 32
     time_emb_size: 16
@@ -481,7 +474,7 @@ THP_gen:
   base_config:
     stage: gen
     backend: torch
-    dataset_id: retweet
+    dataset_id: volcano
     runner_id: std_tpp
     model_id: THP # model name
     base_dir: './checkpoints/'
@@ -512,14 +505,13 @@ AttNHP_train:
   base_config:
     stage: train
     backend: torch
-    dataset_id: retweet
+    dataset_id: volcano
     runner_id: std_tpp
     model_id: AttNHP # model name
     base_dir: './checkpoints/'
     specs:
-      saved_dir: 'intensity\retweet\residualdata\AttNHP'
-      load_dir1: 'residual_data/retweet/AttNHP'
-      load_dir: 'residual_data/retweet'
+      saved_dir: 'intensity\volcano\residualdata\AttNHP'
+      load_dir: 'residual_data/volcano'
   trainer_config:
     batch_size: 256
     max_epoch: 50
@@ -530,7 +522,7 @@ AttNHP_train:
     use_tfb: False
     metrics: [ 'acc', 'rmse' ]
     seed: 2019
-    gpu: 0
+    gpu: -1
   model_config:
     hidden_size: 16
     time_emb_size: 4
@@ -554,7 +546,7 @@ AttNHP_gen:
   base_config:
     stage: gen
     backend: torch
-    dataset_id: retweet
+    dataset_id: volcano
     runner_id: std_tpp
     model_id: AttNHP # model name
     base_dir: './checkpoints/'

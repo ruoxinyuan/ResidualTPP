@@ -291,7 +291,7 @@ ODETPP_train:
     use_tfb: False
     metrics: [ 'acc', 'rmse' ]
     seed: 2019
-    gpu: -1
+    gpu: 0
   model_config:
     hidden_size: 4
     time_emb_size: 4
@@ -484,7 +484,7 @@ THP_train:
     use_tfb: False
     metrics: [ 'acc', 'rmse' ]
     seed: 2019
-    gpu: -1
+    gpu: 0
   model_config:
     hidden_size: 32
     time_emb_size: 16
@@ -557,7 +557,7 @@ AttNHP_train:
     use_tfb: False
     metrics: [ 'acc', 'rmse' ]
     seed: 2019
-    gpu: -1
+    gpu: 0
   model_config:
     hidden_size: 16
     time_emb_size: 4
