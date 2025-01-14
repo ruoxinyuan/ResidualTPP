@@ -10,11 +10,10 @@ data:
       num_event_types: 75
       pad_token_id: 75
       padding_side: right
-      res_weight: 0.65
+      res_weight: 0.72
 #      padding_strategy: max_length
 #      truncation_strategy: longest_first # or Truncate to a maximum length specified with the argument `max_length`
 #      max_len: 20
-
 
 
 RMTPP_train:
@@ -27,7 +26,8 @@ RMTPP_train:
     base_dir: './checkpoints/'
     specs:
       saved_dir: 'intensity\mimic\residualdata\RMTPP'
-      load_dir: 'residual_data/mimic'
+      load_dir1: 'residual_data/mimic'
+      load_dir: 'residual_data/mimic/RMTPP' 
   trainer_config:
     batch_size: 256
     max_epoch: 100
@@ -161,10 +161,11 @@ FullyNN_train:
     base_dir: './checkpoints/'
     specs:
       saved_dir: 'intensity\mimic\residualdata\FullyNN'
-      load_dir: 'residual_data/mimic'
+      load_dir1: 'residual_data/mimic'
+      load_dir: 'residual_data/mimic/FullyNN' 
   trainer_config:
     batch_size: 256
-    max_epoch: 50
+    max_epoch: 300
     shuffle: False
     optimizer: adam
     learning_rate: 1.e-3
@@ -210,7 +211,8 @@ IntensityFree_train:
     base_dir: './checkpoints/'
     specs:
       saved_dir: 'intensity\mimic\residualdata\IntensityFree'
-      load_dir: 'residual_data/mimic'
+      load_dir1: 'residual_data/mimic'
+      load_dir: 'residual_data/mimic/IntensityFree' 
   trainer_config:
     batch_size: 256
     max_epoch: 200
@@ -247,10 +249,11 @@ ODETPP_train:
     base_dir: './checkpoints/'
     specs:
       saved_dir: 'intensity\mimic\residualdata\ODETPP'
-      load_dir: 'residual_data/mimic'
+      load_dir1: 'residual_data/mimic'
+      load_dir: 'residual_data/mimic/ODETPP' 
   trainer_config:
     batch_size: 32
-    max_epoch: 1
+    max_epoch: 7
     shuffle: False
     optimizer: adam
     learning_rate: 1.e-1
@@ -328,10 +331,11 @@ NHP_train:
     saved_model_dir: './best_model/'
     specs:
       saved_dir: 'intensity\mimic\residualdata\NHP'
-      load_dir: 'residual_data/mimic'
+      load_dir1: 'residual_data/mimic'
+      load_dir: 'residual_data/mimic/NHP' 
   trainer_config:
     batch_size: 256
-    max_epoch: 20
+    max_epoch: 100
     shuffle: False
     optimizer: adam
     learning_rate: 1.e-3
@@ -367,10 +371,11 @@ SAHP_train:
     base_dir: './checkpoints/'
     specs:
       saved_dir: 'intensity\mimic\residualdata\SAHP'
-      load_dir: 'residual_data/mimic'
+      load_dir1: 'residual_data/mimic'
+      load_dir: 'residual_data/mimic/SAHP' 
   trainer_config:
     batch_size: 256
-    max_epoch: 100
+    max_epoch: 500
     shuffle: False
     optimizer: adam
     learning_rate: 1.e-3
@@ -438,10 +443,11 @@ THP_train:
     base_dir: './checkpoints/'
     specs:
       saved_dir: 'intensity\mimic\residualdata\THP'
-      load_dir: 'residual_data/mimic'
+      load_dir1: 'residual_data/mimic'
+      load_dir: 'residual_data/mimic/THP' 
   trainer_config:
     batch_size: 256
-    max_epoch: 20
+    max_epoch: 50
     shuffle: False
     optimizer: adam
     learning_rate: 1.e-3
@@ -511,7 +517,8 @@ AttNHP_train:
     base_dir: './checkpoints/'
     specs:
       saved_dir: 'intensity\mimic\residualdata\AttNHP'
-      load_dir: 'residual_data/mimic'
+      load_dir1: 'residual_data/mimic'
+      load_dir: 'residual_data/mimic/AttNHP' 
   trainer_config:
     batch_size: 256
     max_epoch: 50
