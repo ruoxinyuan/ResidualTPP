@@ -27,6 +27,7 @@ RMTPP_train:
     base_dir: './checkpoints/'
     specs:
       saved_dir: 'intensity\retweet\residualdata\RMTPP'
+      load_dir1: 'residual_data/retweet/RMTPP'
       load_dir: 'residual_data/retweet'
   trainer_config:
     batch_size: 256
@@ -161,6 +162,7 @@ FullyNN_train:
     base_dir: './checkpoints/'
     specs:
       saved_dir: 'intensity\retweet\residualdata\FullyNN'
+      load_dir1: 'residual_data/retweet/FullyNN'
       load_dir: 'residual_data/retweet'
   trainer_config:
     batch_size: 256
@@ -210,6 +212,7 @@ IntensityFree_train:
     base_dir: './checkpoints/'
     specs:
       saved_dir: 'intensity\retweet\residualdata\IntensityFree'
+      load_dir1: 'residual_data/retweet/THP'
       load_dir: 'residual_data/retweet'
   trainer_config:
     batch_size: 256
@@ -247,6 +250,7 @@ ODETPP_train:
     base_dir: './checkpoints/'
     specs:
       saved_dir: 'intensity\retweet\residualdata\ODETPP'
+      load_dir1: 'residual_data/retweet/ODETPP'
       load_dir: 'residual_data/retweet'
   trainer_config:
     batch_size: 32
@@ -328,6 +332,7 @@ NHP_train:
     saved_model_dir: './best_model/'
     specs:
       saved_dir: 'intensity\retweet\residualdata\NHP'
+      load_dir1: 'residual_data/retweet/NHP'
       load_dir: 'residual_data/retweet'
   trainer_config:
     batch_size: 256
@@ -367,10 +372,11 @@ SAHP_train:
     base_dir: './checkpoints/'
     specs:
       saved_dir: 'intensity\retweet\residualdata\SAHP'
+      load_dir1: 'residual_data/retweet/SAHP'
       load_dir: 'residual_data/retweet'
   trainer_config:
     batch_size: 256
-    max_epoch: 100
+    max_epoch: 200
     shuffle: False
     optimizer: adam
     learning_rate: 1.e-3
@@ -438,6 +444,7 @@ THP_train:
     base_dir: './checkpoints/'
     specs:
       saved_dir: 'intensity\retweet\residualdata\THP'
+      load_dir1: 'residual_data/retweet/THP'
       load_dir: 'residual_data/retweet'
   trainer_config:
     batch_size: 256
@@ -511,6 +518,7 @@ AttNHP_train:
     base_dir: './checkpoints/'
     specs:
       saved_dir: 'intensity\retweet\residualdata\AttNHP'
+      load_dir1: 'residual_data/retweet/AttNHP'
       load_dir: 'residual_data/retweet'
   trainer_config:
     batch_size: 256
