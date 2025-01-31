@@ -123,12 +123,12 @@ class TPPRunner(Runner):
         resweight = self.runner_config.data_config.data_specs.res_weight
         save_intensities_dir = self.runner_config.base_config.specs['saved_dir']
         load_dir = self.runner_config.base_config.specs['load_dir']
+        accepted_dtimes_path = os.path.join(load_dir, 'accepted_dtimes.pth')
         if not os.path.exists(save_intensities_dir):
             os.makedirs(save_intensities_dir)
         with torch.no_grad():
             
             tensors = torch.load(os.path.join(load_dir, 'tensors.pth'))
-            accepted_dtimes = torch.load(os.path.join(load_dir, 'accepted_dtimes.pth'))
 
             t_BN = tensors['time_seq']
             dt_BN = tensors['time_delta_seq']
@@ -151,12 +151,17 @@ class TPPRunner(Runner):
             intensities_for_bound = hawkes_bound_sample_intensities*(1-resweight) + intensities_for_bound*resweight
             intensity_upper_bound = intensities_for_bound.sum(dim=-1).max(dim=-1)[0] * 5
 
-            intensities_at_times = self.model_wrapper.model.compute_intensities_at_sample_times(
-                time_seqs=t_BN[:, :-1], time_delta_seqs=dt_BN[:, :-1], type_seqs=marks_BN[:, :-1], sample_dtimes=accepted_dtimes)
+            if os.path.exists(accepted_dtimes_path):
+                accepted_dtimes = torch.load(accepted_dtimes_path)
+                intensities_at_times = self.model_wrapper.model.compute_intensities_at_sample_times(
+                    time_seqs=t_BN[:, :-1], time_delta_seqs=dt_BN[:, :-1], type_seqs=marks_BN[:, :-1], sample_dtimes=accepted_dtimes)
+                
+                torch.save(intensities_at_times, os.path.join(save_intensities_dir, 'intensities_at_times.pth'))
+            else:
+                print(f"File {accepted_dtimes_path} not found, skipping this part.")
             
         torch.save(event_intensities, os.path.join(save_intensities_dir, 'test_event_intensities.pth'))
         torch.save(sample_intensities, os.path.join(save_intensities_dir, 'test_sample_intensities.pth'))
-        torch.save(intensities_at_times, os.path.join(save_intensities_dir, 'intensities_at_times.pth'))
 
         batch_size, seq_len = intensity_upper_bound.size()
         # num_exp = self.runner_config.model_config.thinning.get('num_exp', 500) 
