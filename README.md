@@ -1,6 +1,6 @@
 # Residual TPP: A Unified Lightweight Approach for Event Stream Data Analysis
 
-## 📌 Introduction
+##  Introduction
 Residual TPP is a novel, unified, and lightweight approach for analyzing event stream data. It combines **statistical TPPs** with **neural TPPs**, leveraging the **Residual Events Decomposition (RED)** technique to enhance model flexibility and efficiency. 
 
 By integrating a **Hawkes process** for self-exciting patterns and a **neural TPP** for residual modeling, Residual TPP achieves **state-of-the-art performance** while maintaining computational efficiency.
@@ -66,7 +66,7 @@ scores = handler.evaluate_model(trained_model, datasets)
 print("Evaluation Scores:", scores)
 ``` -->
 
-## 📊 Datasets
+##  Datasets
 We evaluate Residual TPP on six real-world event stream datasets, which are from ["EasyTPP"](https://github.com/ant-research/EasyTemporalPointProcess) and ["NHP"](https://github.com/hongyuanmei/neurawkes).
 
 
@@ -85,7 +85,7 @@ where:
 - \( \lambda_k^{(2)}(t) \) is the neural TPP intensity.
 - \( \alpha \) represents the proportion of residual events.
 
-## 📈 Experimental Results
+##  Experimental Results
 | Model         | MIMIC-II | Retweet | Earthquake | StackOverflow | Amazon | Volcano |
 |--------------|---------|---------|------------|--------------|--------|--------|
 | **Hawkes**   | -2.839  | -13.71  | -4.155     | -2.866       | -0.534 | 0.983  |
@@ -93,3 +93,6 @@ where:
 
 Residual TPP achieves **superior performance** in goodness-of-fit and prediction tasks while reducing training time. -->
 
+
+## Acknowledgments
+This project uses code from [EasyTemporalPointProcess](https://github.com/ant-research/EasyTemporalPointProcess).
