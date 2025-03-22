@@ -43,7 +43,7 @@ def create_event_buckets(data, dim_process) -> List[List[np.ndarray]]:
     # Convert event times to numpy arrays for each bucket
     return [[np.array(times) for times in sublist] for sublist in buckets]
 
-def process_dataset(dataset_name: str = 'earthquake') -> Dict[str, Dict]:
+def process_dataset(config_path, dataset_name: str = 'earthquake') -> Dict[str, Dict]:
     """
     Full data processing pipeline.
 
@@ -51,7 +51,7 @@ def process_dataset(dataset_name: str = 'earthquake') -> Dict[str, Dict]:
         Dict[str, Dict]: A dictionary containing processed 'train', 'valid', and 'test' datasets.
     """
     # Load raw data
-    raw_data = load_raw_data(dataset_name)
+    raw_data = load_raw_data(config_path, dataset_name)
     
     # Extract event dimension from the training data
     dim_process = raw_data["train"]["dim_process"]
@@ -74,7 +74,7 @@ def process_dataset(dataset_name: str = 'earthquake') -> Dict[str, Dict]:
 
 if __name__ == "__main__":
     # Example usage of the process_dataset function
-    processed_data = process_dataset("earthquake")
+    processed_data = process_dataset("example/configs/origin_earthquake.yaml", "earthquake")
     hawkes_train = processed_data['train']['buckets']
     
     # Verify the structure of the processed data

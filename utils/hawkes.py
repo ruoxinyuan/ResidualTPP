@@ -100,20 +100,20 @@ if __name__ == "__main__":
     MAX_ITER = 500
 
     # Load raw data
-    raw_data = load_raw_data('earthquake')
+    raw_data = load_raw_data("example/configs/origin_earthquake.yaml", 'earthquake')
     num_event_types = raw_data["train"]["dim_process"]
     
     # Initialize the model handler
-    handler = HawkesModelHandler(max_iter=MAX_ITER)
+    handler = HawkesModelHandler(max_iter=MAX_ITER, random_seed=42)
     
     # 1. Create decay matrix
-    decay_matrix = handler.create_decay_matrix(num_event_types)
+    decay_matrix = handler.create_decay_matrix(num_event_types, 4, 0.01)
     
     # 2. Initialize the model
     model = handler.initialize_model()
     
     # 3. Train the model
-    processed_data = process_dataset("earthquake")
+    processed_data = process_dataset("example/configs/origin_earthquake.yaml", "earthquake")
     train_data = processed_data['train']['buckets']
     valid_data = processed_data['valid']['buckets']
     test_data = processed_data['test']['buckets']

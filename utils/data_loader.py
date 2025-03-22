@@ -3,11 +3,11 @@ from typing import Dict, Any
 import yaml
 import pandas as pd
 
-def load_config(config_path: str = "configs/origin_earthquake.yaml") -> Dict[str, Any]:
+def load_config(config_path: str = "example/configs/origin_earthquake.yaml") -> Dict[str, Any]:
     """
     Loads a YAML configuration file.
 
-    Args: config_path (str): The path to the configuration file. Default is "configs/origin_earthquake.yaml" in the project root.
+    Args: config_path (str): The path to the configuration file. Default is "example/configs/origin_earthquake.yaml" in the project root.
 
     Returns: Dict[str, Any]: A dictionary containing the parsed configuration.
 
@@ -56,7 +56,7 @@ def _nested_key_exists(config: Dict, dotted_key: str) -> bool:
         current = current[k]
     return True
 
-def load_raw_data(dataset_name: str = 'earthquake') -> Dict:
+def load_raw_data(config_path, dataset_name: str = 'earthquake') -> Dict:
     """
     Loads the raw dataset specified in the configuration file.
 
@@ -69,7 +69,7 @@ def load_raw_data(dataset_name: str = 'earthquake') -> Dict:
     Raises:
         FileNotFoundError: If any of the dataset files do not exist.
     """
-    config = load_config()
+    config = load_config(config_path)
     
     # Retrieve dataset configuration from the loaded config
     try:
@@ -96,5 +96,5 @@ def load_raw_data(dataset_name: str = 'earthquake') -> Dict:
 
 # Example usage
 if __name__ == "__main__":
-    data = load_raw_data('earthquake')
+    data = load_raw_data("example/configs/origin_earthquake.yaml", 'earthquake')
     print(f"Example training data:\n{data['train']}")
