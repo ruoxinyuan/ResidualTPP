@@ -7,7 +7,7 @@ from easy_tpp.preprocess import TPPDataLoader
 def main():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--config_dir', type=str, required=False, default='configs/origin_earthquake.yaml',
+    parser.add_argument('--config_dir', type=str, required=False, default='example/configs/origin_earthquake.yaml',
                         help='Dir of configuration yaml to train and evaluate the model.')
 
     parser.add_argument('--experiment_id', type=str, required=False, default='RMTPP_train',

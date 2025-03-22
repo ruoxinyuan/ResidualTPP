@@ -112,12 +112,15 @@ class TPPRunner(Runner):
 
                 logger.critical(message_valid)
         
-        self._compute_intensities(train_loader, test_loader)
         self.model_wrapper.close_summary()
+
+        load_dir = self.runner_config.base_config.specs['load_dir']
+        if load_dir:
+            self._compute_intensities()
 
         return
     
-    def _compute_intensities(self, train_loader, test_loader):
+    def _compute_intensities(self):
         """Compute intensities for train and valid datasets using the trained model."""
         self.model_wrapper.model.eval()
         resweight = self.runner_config.data_config.data_specs.res_weight
