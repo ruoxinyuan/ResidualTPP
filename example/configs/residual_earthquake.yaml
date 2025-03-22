@@ -26,7 +26,7 @@ RMTPP_train:
     model_id: RMTPP # model name
     base_dir: './checkpoints/'
     specs:
-      saved_dir: 'example\intensity\earthquake\residualdata\RMTPP'
+      saved_dir: 'example\intensity\earthquake\residual_data\RMTPP'
       load_dir: 'example/residual_data/earthquake'
   trainer_config:
     batch_size: 256
@@ -160,7 +160,7 @@ FullyNN_train:
     model_id: FullyNN # model name
     base_dir: './checkpoints/'
     specs:
-      saved_dir: 'example\intensity\earthquake\residualdata\FullyNN'
+      saved_dir: 'example\intensity\earthquake\residual_data\FullyNN'
       load_dir: 'example/residual_data/earthquake'
   trainer_config:
     batch_size: 256
@@ -209,7 +209,7 @@ IntensityFree_train:
     model_id: IntensityFree # model name
     base_dir: './checkpoints/'
     specs:
-      saved_dir: 'example\intensity\earthquake\residualdata\IntensityFree'
+      saved_dir: 'example\intensity\earthquake\residual_data\IntensityFree'
       load_dir: 'example/residual_data/earthquake'
   trainer_config:
     batch_size: 256
@@ -246,7 +246,7 @@ ODETPP_train:
     model_id: ODETPP # model name
     base_dir: './checkpoints/'
     specs:
-      saved_dir: 'example\intensity\earthquake\residualdata\ODETPP'
+      saved_dir: 'example\intensity\earthquake\residual_data\ODETPP'
       load_dir: 'example/residual_data/earthquake'
   trainer_config:
     batch_size: 32
@@ -327,7 +327,7 @@ NHP_train:
     base_dir: './checkpoints/'
     saved_model_dir: './best_model/'
     specs:
-      saved_dir: 'example\intensity\earthquake\residualdata\NHP'
+      saved_dir: 'example\intensity\earthquake\residual_data\NHP'
       load_dir: 'example/residual_data/earthquake'
   trainer_config:
     batch_size: 256
@@ -366,7 +366,7 @@ SAHP_train:
     model_id: SAHP # model name
     base_dir: './checkpoints/'
     specs:
-      saved_dir: 'example\intensity\earthquake\residualdata\SAHP'
+      saved_dir: 'example\intensity\earthquake\residual_data\SAHP'
       load_dir: 'example/residual_data/earthquake'
   trainer_config:
     batch_size: 256
@@ -437,7 +437,7 @@ THP_train:
     model_id: THP # model name
     base_dir: './checkpoints/'
     specs:
-      saved_dir: 'example\intensity\earthquake\residualdata\THP'
+      saved_dir: 'example\intensity\earthquake\residual_data\THP'
       load_dir: 'example/residual_data/earthquake'
   trainer_config:
     batch_size: 256
@@ -510,7 +510,7 @@ AttNHP_train:
     model_id: AttNHP # model name
     base_dir: './checkpoints/'
     specs:
-      saved_dir: 'example\intensity\earthquake\residualdata\AttNHP'
+      saved_dir: 'example\intensity\earthquake\residual_data\AttNHP'
       load_dir: 'example/residual_data/earthquake'
   trainer_config:
     batch_size: 256
