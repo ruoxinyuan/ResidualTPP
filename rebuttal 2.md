@@ -1,6 +1,8 @@
+Thank you for your insightful and positive feedback! 
+
 >Q1: Is there any alternative to using an influence function?
 
-Please refer to the response to **H11P** Q1.
+Please refer to our response to **H11P** Q1.
 
 >Q2: This also seems like a novel way of finding anomalies in a TPP sequence.
 
@@ -24,4 +26,4 @@ We use the superposition property of the TPPs. The weight function is used to de
 
 >Essential References Not Discussed: It could use a bit more overview of the existing works, and their connections to this paper. No specific papers in mind. I think Lüdke et al. "Add and Thin" (2023) is also relevant as it has some similar ideas, but this paper is distinctly different.
 
-Thanks for the suggestion! Lüdke et al.(2023) 
+Thanks for the suggestion! Lüdke et al.(2023) introduce ADD-THIN, a diffusion-inspired TPP model that allows sampling entire event sequences at once and excels in forecasting. This inspired us to explore how future research could develop new decomposition techniques to enhance the forecasting ability of standard autoregressive TPP models. More literature review on Meta TPP, UNHaP and related works can be found in our response to Reviewer H11P and QaBc. We will include more discussions in the Camera-ready version.
