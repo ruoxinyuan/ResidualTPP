@@ -120,15 +120,15 @@ class HawkesModelHandler:
         self._validate_model_initialized()
 
         # event event intensities
-        event_intensities = self._compute_event_intensities(time_seqs[:,:-1], event_times)
+        event_intensities = self.compute_event_intensities(time_seqs[:,:-1], event_times)
         
         # Time delta sampling
         sampled_dtimes = self.sample_time_intervals(time_delta_seqs[:, 1:], n_samples)
         boundary_samples = self.sample_time_intervals(time_delta_seqs[:, :-1], 5)
         
         # Intensity calculations
-        sampled_intensities = self._compute_sampled_intensities(sampled_dtimes, event_times)
-        boundary_intensities = self._compute_sampled_intensities(boundary_samples, event_times)
+        sampled_intensities = self.compute_sampled_intensities(sampled_dtimes, event_times)
+        boundary_intensities = self.compute_sampled_intensities(boundary_samples, event_times)
         
         return {
             'event_intensities': event_intensities,
@@ -149,7 +149,7 @@ class HawkesModelHandler:
         if not all([hasattr(self.model, attr) for attr in ['baseline', 'adjacency', 'decays']]):
             raise RuntimeError("Model parameters not initialized. Train model first.")
 
-    def _compute_event_intensities(self, time_seqs: Tensor, event_times: List[List[List[float]]]) -> Tensor:
+    def compute_event_intensities(self, time_seqs: Tensor, event_times: List[List[List[float]]]) -> Tensor:
         """Exact intensity computation at event times"""
         batch_size, seq_len = time_seqs.shape
         num_types = len(self.model.baseline)
@@ -178,7 +178,7 @@ class HawkesModelHandler:
         ratios = torch.linspace(0, 1, n_samples)
         return time_delta_seqs[:, :, None] * ratios  # [B, T-1, S]
 
-    def _compute_sampled_intensities(self, sampled_dtimes: Tensor, event_times: List[List[List[float]]]) -> Tensor:
+    def compute_sampled_intensities(self, sampled_dtimes: Tensor, event_times: List[List[List[float]]]) -> Tensor:
         """Intensity computation at sampled time points"""
         batch_size, seq_len, n_samples = sampled_dtimes.shape
         num_types = len(self.model.baseline)
