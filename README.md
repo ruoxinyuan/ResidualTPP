@@ -1,5 +1,6 @@
-# Residual TPP: A Unified Lightweight Approach for Event Stream Data Analysis
+# Residual TPP
 
+This is the official repository of the Residual TPP paper: "[Residual TPP: A Unified Lightweight Approach for Event Stream Data Analysis](https://proceedings.mlr.press/v267/yuan25a.html)".
 ##  Introduction
 Residual TPP is a novel, unified, and lightweight approach for analyzing event stream data. It combines **statistical TPPs** with **neural TPPs**, leveraging the **Residual Events Decomposition (RED)** technique to enhance model flexibility and efficiency. 
 
@@ -67,7 +68,7 @@ print("Evaluation Scores:", scores)
 ``` -->
 
 ##  Datasets
-We evaluate Residual TPP on six real-world event stream datasets, which are from ["EasyTPP"](https://github.com/ant-research/EasyTemporalPointProcess) and ["NHP"](https://github.com/hongyuanmei/neurawkes).
+We evaluate Residual TPP on three constructed synthetic datasets and six real-world event stream datasets: MIMIC-II, Retweet, StackOverflow, Amazon, Earthquake, and Volcano. The real-world datasets are obtained via  ["EasyTPP"](https://github.com/ant-research/EasyTemporalPointProcess) and ["NHP"](https://github.com/hongyuanmei/neurawkes).
 
 
 <!-- ## 🎯 Model Architecture
@@ -93,6 +94,24 @@ where:
 
 Residual TPP achieves **superior performance** in goodness-of-fit and prediction tasks while reducing training time. -->
 
+
+## Citation
+If you find this repo useful, please cite our paper.
+```bibtex
+@InProceedings{pmlr-v267-yuan25a,
+  title = 	 {Residual {TPP}: A Unified Lightweight Approach for Event Stream Data Analysis},
+  author =       {Yuan, Ruoxin and Fang, Guanhua},
+  booktitle = 	 {Proceedings of the 42nd International Conference on Machine Learning},
+  pages = 	 {73455--73477},
+  year = 	 {2025},
+  volume = 	 {267},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {13--19 Jul},
+  publisher =    {PMLR},
+  url = 	 {https://proceedings.mlr.press/v267/yuan25a.html},
+}
+
+```
 
 ## Acknowledgments
 This project uses code from [EasyTemporalPointProcess](https://github.com/ant-research/EasyTemporalPointProcess).
